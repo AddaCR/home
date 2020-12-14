@@ -11,4 +11,5 @@ Domain / Technical skills
 
 Xamarin - Target 4
 Personal target
+Pe baza tutorialului:
 https://www.youtube.com/watch?v=p6VTXVfJMoQ&ab_channel=KymPhillpotts
