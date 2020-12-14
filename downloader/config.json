@@ -1,0 +1,7 @@
+{
+    "port": 9999,
+    "prefix": "test",
+    "maxSize": 10,
+    "timer": 10,
+    "buffersize": 1024
+}
