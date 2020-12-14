@@ -1,0 +1,52 @@
+#grad {
+  height: 200px;
+  background-image: linear-gradient(rgba(0,255,0,0.3), rgba(255,0,0,0));
+  }
+
+
+#board{
+    /*Proprietatea "margin" are rolul de a crea spatiu in jurul elementelor,
+     In cazul nostru, creeaza un spatiu de 20px deasupra tabelului.*/
+    margin-top: 1000px;
+  
+    /*Proprtietatea margin:auto are rolul de a positiona tabelul nostru in centrul paginii.
+      "auto" vina de la faptul ca marginile la stanga si la dreapta se vor ajusta automat.
+      Atentie !! "margin: auto" nu afecteaza spatiile deasupra si dedesubptul elementului, ci doar cele de la stanga si dreapta*/
+    margin: auto;
+  
+    border: 1px solid black; /*Tabelul va avea o bordura de 1px -> un pixel, solid -> linie continua, black -> neagra*/
+    border-collapse: collapse; /*Bordurile celulelor tabelului, se vor contopi intr-una singura.*/
+  }
+  
+  /* Stilizarea tuturor celulelor tabelului*/
+  #board tr td{
+    width: 100px; /*latimea*/
+    height: 100px; /*inaltimea*/
+    border: 5px solid rgb(56, 53, 53); /*Bordurile celulelor: grosime, tip linie -> continua, culoare in cod rgb*/
+    font-family: Helvetica; /*Stilul textului din interiorul celulelor*/
+    font-size: 30px; /*Marimea textului*/
+    text-align: center; /*Alinierea textului in mijlocul celulelor*/
+  }
+  
+ 
+  
+  .vertical-menu {
+    width: 200px;
+  }
+  
+  .vertical-menu a {
+    background-color: #eee;
+    color: black;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+  }
+  
+  .vertical-menu a:hover {
+    background-color: #ccc;
+  }
+  
+  .vertical-menu a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
