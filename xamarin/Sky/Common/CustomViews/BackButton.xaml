@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Sky.Common.CustomViews.BackButton">
+
+    <Image x:Name="CommonBackButton" WidthRequest="16" HeightRequest="28" Margin="5,20,0,0"
+                HorizontalOptions="Start" VerticalOptions="Start"
+                Source="common_backbutton.png">
+        <Image.GestureRecognizers>
+            <TapGestureRecognizer Tapped="OnButtonPress_Back"/>
+        </Image.GestureRecognizers>
+    </Image>
+
+</ContentView>

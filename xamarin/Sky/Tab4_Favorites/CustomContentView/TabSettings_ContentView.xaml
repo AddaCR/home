@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:customviews="clr-namespace:Sky.Common.CustomViews"
+             mc:Ignorable="d"
+             x:Class="Sky.Tab4_Favorites.CustomContentView.TabSettings_ContentView">
+
+
+    <ContentView.BindingContext>
+        <customviews:SwitchButton/>
+    </ContentView.BindingContext>
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="LabelsStyle">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontFamily" Value="Runda"/>
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+
+    <StackLayout Orientation="Vertical" Margin="10,15" HorizontalOptions="FillAndExpand" >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" x:Name="PersonalDetails" Orientation="Vertical"  HorizontalOptions="FillAndExpand">
+                <Label Text="PERSONAL DETAILS" TextColor="Gray" FontSize="12"/>
+                <Grid ColumnSpacing="0" RowSpacing="20" Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Text="Name"  Style="{StaticResource LabelsStyle}"/>
+                    <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                        <Label Grid.Row="0" Text="Sarah Parmenter"  Style="{StaticResource LabelsStyle}" />
+                        <BoxView BackgroundColor="Gray" HeightRequest="1" Opacity="0.5"/>
+                    </StackLayout>
+
+                    <Label Grid.Row="1" Grid.Column="0" Text="Location" Style="{StaticResource LabelsStyle}"/>
+                    <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                        <Label Text="London, England" Style="{StaticResource LabelsStyle}"/>
+                        <BoxView BackgroundColor="Gray" HeightRequest="1" Opacity="0.5"/>
+                    </StackLayout>
+
+
+
+                    <Label Grid.Row="2" Grid.Column="0" Text="Card Bio"  Style="{StaticResource LabelsStyle}"/>
+                    <StackLayout Grid.Row="2" Grid.Column="1" Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                        <Label Text="Director of You Know Who, User Interface Designer and Dog Lover."  Style="{StaticResource LabelsStyle}"/>
+                        <BoxView BackgroundColor="Gray" HeightRequest="1" Opacity="0.5"/>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+            
+            <StackLayout Grid.Row="1" x:Name="Billing">
+                <Label Text="BILLING" TextColor="Gray" FontSize="12"/>
+                <Grid ColumnSpacing="0" Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" Text="Credit Card" Style="{StaticResource LabelsStyle}"/>
+                    <StackLayout Grid.Column="1" Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                        <Label Text="*** 0980" Style="{StaticResource LabelsStyle}"/>
+                        <BoxView BackgroundColor="Gray" HeightRequest="1" Opacity="0.5"/>
+                    </StackLayout>
+                </Grid>
+
+            </StackLayout>
+            
+            <StackLayout Grid.Row="2" x:Name="ConnectedAccounts">
+                <Label Text="CONNECTED ACCOUNTS" TextColor="Gray" FontSize="12"/>
+                <Grid ColumnSpacing="0" RowSpacing="20" Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Text="Facebook"  Style="{StaticResource LabelsStyle}"/>
+                    <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                        <customviews:SwitchButton x:Name="SwitchButtonFacebook" VerticalOptions="Start" HorizontalOptions="Start"/>
+                        <BoxView BackgroundColor="Gray" HeightRequest="1" Opacity="0.5"/>
+                    </StackLayout>
+
+                    <Label Grid.Row="1" Grid.Column="0" Text="Twitter"  Style="{StaticResource LabelsStyle}"/>
+                    <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                        <customviews:SwitchButton x:Name="SwitchButtonTwitter" VerticalOptions="Start" HorizontalOptions="Start"/>
+                        <BoxView BackgroundColor="Gray" HeightRequest="1" Opacity="0.5"/>
+                    </StackLayout>
+                </Grid>
+
+            </StackLayout>
+
+
+
+        </Grid>
+
+    </StackLayout>
+</ContentView>

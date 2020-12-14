@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:tabs="clr-namespace:Sharpnado.Presentation.Forms.CustomViews.Tabs;assembly=Sharpnado.Presentation.Forms"
+             xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+             mc:Ignorable="d"
+             x:Class="Sky.Tab3_Travellers.TravellersBasePage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="ListView" x:Key="ListViewStyle">
+                <Setter Property="HorizontalScrollBarVisibility" Value="Default"/>
+                <Setter Property="HasUnevenRows" Value="True"/>
+                <Setter Property="SeparatorVisibility" Value="None"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+                <Setter Property="Margin" Value="10,30,0,0"/>
+            </Style>
+            <Style TargetType="StackLayout" x:Key="StackLayoutStyle">
+                <Setter Property="Orientation" Value="Vertical"/>
+                <Setter Property="Margin" Value="20, 5, 20,0"/>
+                <Setter Property="BackgroundColor" Value="White"/>
+            </Style>
+            <Style TargetType="Button" x:Key="AllButtons">
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="BackgroundColor" Value="#7B1FA2"/>
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+        </ResourceDictionary>
+
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <!-- background -->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackLayout Spacing="0" Grid.Row="0">
+                <magic:GradientView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <magic:GradientView.GradientSource>
+                        <magic:LinearGradient Angle="180">
+                            <magic:GradientStop Color="#261136" Offset="0" />
+                            <magic:GradientStop Color="#261136" Offset="1" />
+                        </magic:LinearGradient>
+                    </magic:GradientView.GradientSource>
+                </magic:GradientView>
+            </StackLayout>
+
+
+            <!-- Header with Search  -->
+
+            <ListView x:Name="AccountListView" 
+              ItemTapped="AccountListView_ItemTapped"
+              Style="{StaticResource ListViewStyle}"
+              >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Style="{StaticResource StackLayoutStyle}">
+                                <Grid ColumnSpacing="0" RowSpacing="0" >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                
+                                    <Image Grid.Row="0" Grid.RowSpan="3" Grid.Column="0"
+                                           VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                                           Aspect="AspectFill" x:Name="accountImage" Source="{Binding ProfilePicturePath}"/>
+                                    
+                                    <StackLayout Orientation="Vertical"  Grid.Row="0" Grid.Column="1">
+                                    <Label Text="{Binding Name}" TextColor="Black" 
+                                           Padding="20,5,20,0"
+                                           HorizontalTextAlignment="Start" 
+                                           FontSize="Large"/>
+                                        <Label Text="{Binding Description}" TextColor="Gray" HorizontalTextAlignment="Start" 
+                                               Padding="20,0"/>
+                                    </StackLayout>
+
+                                    <Button Grid.Row="1" Grid.Column="1" Margin="15" 
+                                            Text="MESSAGE"
+                                            Clicked="MessageButton_Clicked" Style="{StaticResource AllButtons}"/>
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

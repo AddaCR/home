@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+             xmlns:customviews="clr-namespace:Sky.Common.CustomViews"
+             mc:Ignorable="d"
+             x:Class="Sky.Tab2_Discover.DiscoverBasePage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="ListView" x:Key="ListViewStyle">
+                <Setter Property="HorizontalScrollBarVisibility" Value="Default"/>
+                <Setter Property="HasUnevenRows" Value="True"/>
+                <Setter Property="SeparatorVisibility" Value="None"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+                <Setter Property="Margin" Value="20,0"/>
+            </Style>
+
+            <Style TargetType="StackLayout" x:Key="StackLayout_PageMargin">
+                <Setter Property="Margin" Value="20"/>
+            </Style>
+            
+            <Style TargetType="Label" x:Key="Label_Title">
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="HorizontalOptions" Value="Start"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontFamily" Value="Runda"/>
+            </Style>
+            <Style TargetType="Label" x:Key="Label_Category">
+                <Setter Property="TextColor" Value="Gray"/>
+                <Setter Property="HorizontalOptions" Value="Start"/>
+                <Setter Property="FontSize" Value="10"/>
+                <Setter Property="FontFamily" Value="Runda"/>
+            </Style>
+            <Style TargetType="Label" x:Key="Label_Money">
+                <Setter Property="BackgroundColor" Value="#431C60"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontFamily" Value="Runda"/>
+                <Setter Property="VerticalOptions" Value="Start"/>
+                <Setter Property="HorizontalOptions" Value="End"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="Margin" Value="0,20,-5,0"/>
+                <Setter Property="Padding" Value="20,10"/>
+            </Style>
+        </ResourceDictionary>
+
+    </ContentPage.Resources>
+
+    <ScrollView>
+        
+        <!-- background -->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackLayout Spacing="0" Grid.Row="0">
+                <magic:GradientView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <magic:GradientView.GradientSource>
+                        <magic:LinearGradient Angle="180">
+                            <magic:GradientStop Color="#261136" Offset="0" />
+                            <magic:GradientStop Color="#261136" Offset="1" />
+                        </magic:LinearGradient>
+                    </magic:GradientView.GradientSource>
+                </magic:GradientView>
+            </StackLayout>
+
+            <!-- Header with Search  -->
+
+            <StackLayout Orientation="Vertical" Margin="0,0,0,20">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <StackLayout Spacing="0" Grid.Row="0">
+                        <magic:GradientView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <magic:GradientView.GradientSource>
+                                <magic:LinearGradient Angle="90">
+                                    <magic:GradientStop Color="#7B1FA2" Offset="0" />
+                                    <magic:GradientStop Color="#4527A0" Offset="1" />
+                                </magic:LinearGradient>
+                            </magic:GradientView.GradientSource>
+                        </magic:GradientView>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" Margin="10,60,10,10">
+                        <!--<Label Text="Discover" TextColor="White" FontSize="18" FontFamily="Runda"  Margin="30,0"/>-->
+                        <customviews:SearchBar x:Name="CustomSearchBar"/>
+                    </StackLayout>
+                </Grid>
+
+                <StackLayout x:Name="StackLayout_Container" Orientation="Vertical" Style="{StaticResource StackLayout_PageMargin}">
+                <!-- Content cards - two per row -->
+                    <StackLayout x:Name="Inner_ContentCards" Orientation="Vertical">
+                        <Grid RowSpacing="10" ColumnSpacing="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+
+                            <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Vertical" BackgroundColor="White" VerticalOptions="Center">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Inner_PlaceCardsTapped"/>
+                                </StackLayout.GestureRecognizers>
+                                <Image Source="tab2_discover_placestovisit_example1.png" Aspect="AspectFill" WidthRequest="100" HeightRequest="200"/>
+
+                                <StackLayout Orientation="Vertical" Margin="10,5,10,15">
+                                    <Label Text="Manhattan Brew" Style="{StaticResource Label_Title}"/>
+                                    <Label Text="COFFEE SHOPS"  Style="{StaticResource Label_Category}"/>
+                                </StackLayout>
+                            </StackLayout>
+
+                            <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Vertical" BackgroundColor="White" VerticalOptions="Center">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Inner_PlaceCardsTapped"/>
+                                </StackLayout.GestureRecognizers>
+                                <Image Source="tab2_discover_placestovisit_example2.png" Aspect="AspectFill" WidthRequest="100" HeightRequest="200"/>
+
+                                <StackLayout Orientation="Vertical" Margin="10,5,10,15">
+                                    <Label Text="Top Of The Rock"  Style="{StaticResource Label_Title}"/>
+                                    <Label Text="THINGS TO DO" Style="{StaticResource Label_Category}"/>
+                                </StackLayout>
+                            </StackLayout>
+
+                            <StackLayout Grid.Row="1" Grid.Column="0" Orientation="Vertical" BackgroundColor="White" VerticalOptions="Center">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Inner_PlaceCardsTapped"/>
+                                </StackLayout.GestureRecognizers>
+                                <Image Source="tab2_discover_placestovisit_example1.png" Aspect="AspectFill" WidthRequest="100" HeightRequest="200"/>
+
+                                <StackLayout Orientation="Vertical" Margin="10,5,10,15">
+                                    <Label Text="Manhattan Brew" Style="{StaticResource Label_Title}"/>
+                                    <Label Text="COFFEE SHOPS"  Style="{StaticResource Label_Category}"/>
+                                </StackLayout>
+                            </StackLayout>
+
+                            <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Vertical" BackgroundColor="White" VerticalOptions="Center">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Inner_PlaceCardsTapped"/>
+                                </StackLayout.GestureRecognizers>
+                                <Image Source="tab2_discover_placestovisit_example2.png" Aspect="AspectFill" WidthRequest="100" HeightRequest="200"/>
+
+                                <StackLayout Orientation="Vertical" Margin="10,5,10,15">
+                                    <Label Text="Top Of The Rock"  Style="{StaticResource Label_Title}"/>
+                                    <Label Text="THINGS TO DO" Style="{StaticResource Label_Category}"/>
+                                </StackLayout>
+                            </StackLayout>
+
+
+
+
+                        </Grid>
+
+                    </StackLayout>
+
+                    <!-- Content cards - one per row - new page +click -->
+
+                <StackLayout x:Name="Inner_Article_Big" Orientation="Vertical" BackgroundColor="White" Margin="0,10">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Inner_Article_Big_Tapped"/>
+                    </StackLayout.GestureRecognizers>
+
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Image Grid.Row="0" Source="tab2_discover_article_example1.png" Aspect="AspectFill"/>
+
+                        <StackLayout Grid.Row="1" Orientation="Vertical" Padding="20">
+                            <Grid RowSpacing="30">
+                                <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0" Text="How to find the best photography spots in Brooklyn." TextColor="Black"
+                                        Margin="20,0"
+                                       FontFamily="Runda" FontSize="20"/>
+
+                                    <Label Grid.Row="1"  Margin="20,0" 
+                                       Text="Exceptteus sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt" 
+                                           TextColor="Gray"
+                                           FontFamily="Runda" FontSize="14"/>
+                            </Grid>
+                        </StackLayout>
+                    </Grid>
+
+                </StackLayout>
+ 
+
+                    <StackLayout x:Name="Inner_BookingCards" Orientation="Vertical" >
+                    <Grid RowSpacing="10" ColumnSpacing="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Vertical" BackgroundColor="White" VerticalOptions="Center">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Inner_PlaceCardsTapped"/>
+                            </StackLayout.GestureRecognizers>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="80*"/>
+                                    <ColumnDefinition Width="20*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Source="tab2_discover_hotels_example1.png" Aspect="AspectFill" HeightRequest="300"/>
+                                <Label Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="2"  Style="{StaticResource Label_Money}" Text="$10.00"/>
+                                </Grid>
+
+                            <StackLayout Orientation="Vertical" Margin="10,0,0,20">
+                                <Label Text="Baroque Hotel" TextColor="Black" HorizontalOptions="Start" FontSize="15"/>
+                                <Image Source="tab2_discover_rating.png" HorizontalOptions="Start"/>
+                            </StackLayout>
+                        </StackLayout>
+
+
+                        <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Vertical" BackgroundColor="White" VerticalOptions="Center">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Inner_PlaceCardsTapped"/>
+                            </StackLayout.GestureRecognizers>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="80*"/>
+                                    <ColumnDefinition Width="20*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Source="tab2_discover_hotels_example2.png" Aspect="AspectFill" HeightRequest="300"/>
+                                <Label Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="2"  Style="{StaticResource Label_Money}" Text="$20.00"/>
+                                </Grid>
+
+                            <StackLayout Orientation="Vertical" Margin="10,0,0,20">
+                                <Label Text="Stellar Hotel" TextColor="Black" HorizontalOptions="Start" FontSize="15"/>
+                                <Image Source="tab2_discover_rating.png" HorizontalOptions="Start"/>
+                            </StackLayout>
+                        </StackLayout>
+ 
+                        <StackLayout Grid.Row="1" Grid.Column="0" Orientation="Vertical" BackgroundColor="White" VerticalOptions="Center">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Inner_PlaceCardsTapped"/>
+                            </StackLayout.GestureRecognizers>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="80*"/>
+                                    <ColumnDefinition Width="20*"/>
+                                </Grid.ColumnDefinitions>
+                                
+                                <Image  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Source="tab2_discover_hotels_example3.png" Aspect="AspectFill" HeightRequest="300"/>
+                                <Label Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="2"  Style="{StaticResource Label_Money}" Text="$30.00"/>
+                                </Grid>
+
+                            <StackLayout Orientation="Vertical" Margin="10,0,0,20">
+                                <Label Text="Azure Pier" TextColor="Black" HorizontalOptions="Start" FontSize="15"/>
+                                <Image Source="tab2_discover_rating.png" HorizontalOptions="Start"/>
+                            </StackLayout>
+                        </StackLayout>
+
+
+                        <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Vertical" BackgroundColor="White" VerticalOptions="Center">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Inner_PlaceCardsTapped"/>
+                            </StackLayout.GestureRecognizers>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="80*"/>
+                                    <ColumnDefinition Width="20*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Source="tab2_discover_hotels_example4.png" Aspect="AspectFill" HeightRequest="300"/>
+                                <Label Grid.Row="0"  Grid.Column="0" Grid.ColumnSpan="2"  Style="{StaticResource Label_Money}" Text="$40.00"/>
+                            </Grid>
+
+                            <StackLayout Orientation="Vertical" Margin="10,0,0,20">
+                                <Label Text="The Onyx" TextColor="Black" HorizontalOptions="Start" FontSize="15"/>
+                                <Image Source="tab2_discover_rating.png" HorizontalOptions="Start"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </Grid>
+                </StackLayout>
+
+            </StackLayout>
+            </StackLayout>
+
+
+
+        </Grid>
+
+    </ScrollView>
+</ContentPage>

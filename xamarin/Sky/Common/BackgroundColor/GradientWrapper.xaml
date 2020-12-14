@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+             mc:Ignorable="d"
+             x:Class="Sky.Common.BackgroundColor.GradientWrapper">
+
+
+    <magic:GradientView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <magic:GradientView.GradientSource>
+            <magic:LinearGradient Angle="{Binding Angle, FallbackValue='180'}">
+                <magic:GradientStop Color="{Binding StartColor, FallbackValue='#7B1FA2'}" Offset="0" />
+                <magic:GradientStop Color="{Binding EndColor, FallbackValue='#4527A0'}" Offset="1" />
+            </magic:LinearGradient>
+        </magic:GradientView.GradientSource>
+    </magic:GradientView>
+</ContentView>

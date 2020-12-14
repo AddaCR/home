@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:tab1_travel="clr-namespace:Sky.Tab1_Travel"
+            xmlns:tab2_discover="clr-namespace:Sky.Tab2_Discover"
+            xmlns:tab4_favorites="clr-namespace:Sky.Tab4_Favorites"
+            xmlns:tab3_travellers="clr-namespace:Sky.Tab3_Travellers"
+            mc:Ignorable="d"
+             x:Class="Sky.MainPage">
+    
+    <tab1_travel:TravelNavigationPage IconImageSource="tab1_travel.png"/>
+    <tab2_discover:DiscoverNavigationPage IconImageSource="tab2_discover.png"/>
+    <tab3_travellers:TravellersNavigationPage IconImageSource="tab3_travellers.png"/>
+    <tab4_favorites:FavoritesBasePage IconImageSource="tab4_favorites.png"/>
+
+</TabbedPage>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Sky.Common.CustomViews.SearchBar">
+
+    <StackLayout Orientation="Horizontal" HeightRequest="30" BackgroundColor="White" Padding="15,10">
+        
+        <Image Source="common_searchimage.png"
+                   VerticalOptions="Center" HorizontalOptions="Start"/>
+        
+            <StackLayout x:Name="SearchTextParent" Orientation="Horizontal" Margin="10,0"
+                         HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+            <Label HorizontalTextAlignment="Start" Text="{Binding SearchBarText}" TextColor="Gray" FontSize="16" FontFamily="Runda"/>
+            </StackLayout>
+        
+        <Image Source="common_searchbyvoice.png"
+                   VerticalOptions="Center" HorizontalOptions="End"/>
+    </StackLayout>
+</ContentView>

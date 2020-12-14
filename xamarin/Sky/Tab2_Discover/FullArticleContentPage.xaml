@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:customviews="clr-namespace:Sky.Common.CustomViews"
+             mc:Ignorable="d"
+             x:Class="Sky.Tab2_Discover.FullArticleContentPage">
+
+<ScrollView>
+        <StackLayout x:Name="OuterContainer" Orientation="Vertical" BackgroundColor="#261136">
+            <StackLayout x:Name="Header" Orientation="Vertical">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                            <Image x:Name="BackgroundImage" Grid.Row="0" 
+                                    Source="tab2_discover_article_example1.png" 
+                                    Opacity="0.8"
+                                    Aspect="AspectFill"
+                                    VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                   
+                    <RelativeLayout>
+                        <StackLayout Orientation="Horizontal"
+                                     Margin="32,-72,0,0"
+                                     RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, ElementName=BackgroundImage, Property=Height, Factor=1}"
+                                     >
+
+                            <Image x:Name="ProfilePicture" Source="tab2_discover_profilepicture_small.png" 
+                               WidthRequest="40" HeightRequest="40"/>
+                            <StackLayout Orientation="Vertical" >
+                                <Label Text="Sarah Parmenter" TextColor="White" FontSize="11" VerticalOptions="EndAndExpand" VerticalTextAlignment="Center"/>
+                                <Label Text="THINGS TO DO" TextColor="White" FontSize="11" Opacity="60" VerticalOptions="StartAndExpand" VerticalTextAlignment="Center"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </RelativeLayout>
+
+                    <customviews:BackButton/>
+                </Grid>
+            </StackLayout>
+            <StackLayout x:Name="Text" Orientation="Vertical" Margin="20,25">
+                <Label Text="How to find the best photography spots in Brooklyn."
+                       FontSize="26" TextColor="White"
+                       />
+                <Label Margin="0,15" FontSize="18"  TextColor="White"
+                    Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor sapien diam, nec ultrices lectus bibendum vitae. Aenean scelerisque neque ut nunc elementum, at gravida turpis fermentum. Sed tempor aliquam vulputate. Morbi luctus odio quis tortor pretium, ac sagittis neque tempus. Nullam eget vehicula mi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi risus quam, dignissim non convallis in, laoreet nec sapien. Curabitur fringilla ut nulla eu elementum. Nam risus nulla, pellentesque eu felis a, rhoncus porta dui. Sed in enim magna. Aenean non cursus enim.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam auctor sapien diam, nec ultrices lectus bibendum vitae. Aenean scelerisque neque ut nunc elementum, at gravida turpis fermentum. Sed tempor aliquam vulputate. Morbi luctus odio quis tortor pretium, ac sagittis neque tempus. Nullam eget vehicula mi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi risus quam, dignissim non convallis in, laoreet nec sapien. Curabitur fringilla ut nulla eu elementum. Nam risus nulla, pellentesque eu felis a, rhoncus porta dui. Sed in enim magna. Aenean non cursus enim."/>
+            </StackLayout>
+        </StackLayout>
+    
+</ScrollView>
+</ContentPage>

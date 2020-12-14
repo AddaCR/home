@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:customviews="clr-namespace:Sky.Common.CustomViews"
+             xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+             xmlns:viewmodel="clr-namespace:Sky.Tab3_Travellers.ViewModel"
+             mc:Ignorable="d"
+             x:Class="Sky.Tab3_Travellers.MessagesContentPage">
+    
+    <ContentPage.BindingContext>
+        <viewmodel:ProfileDataViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="StackLayout" x:Key="ProfileImageLayout">
+                <Setter Property="Margin" Value="10,5"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+            <Style TargetType="StackLayout" x:Key="ProfileImageLayout_Disconnected" BasedOn="{StaticResource ProfileImageLayout}">
+                <Setter Property="Opacity" Value="0.5"/>
+            </Style>
+            <Style TargetType="Label" x:Key="ProfileName">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="VerticalOptions" Value="End"/>
+                <Setter Property="Margin" Value="0,0,0,15"/>
+            </Style>
+            <Style TargetType="Image" x:Key="ProfileImage">
+                <Setter Property="WidthRequest" Value="45"/>
+                <Setter Property="HeightRequest" Value="45"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <magic:GradientView Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <magic:GradientView.GradientSource>
+                <magic:LinearGradient Angle="180">
+                    <magic:GradientStop Color="#7B1FA2" Offset="0" />
+                    <magic:GradientStop Color="#4527A0" Offset="1" />
+                </magic:LinearGradient>
+            </magic:GradientView.GradientSource>
+        </magic:GradientView>
+
+        
+        <StackLayout Grid.Row="0" Orientation="Vertical">
+            <StackLayout Orientation="Horizontal" Grid.Row="0">
+                    <customviews:BackButton HeightRequest="80" VerticalOptions="Center"/>
+                    <Label Text="Messages" TextColor="White" FontFamily="Runda" FontSize="28" VerticalOptions="Center" Margin="20,0"/>
+                </StackLayout>
+
+            <ScrollView Orientation="Horizontal">
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout Orientation="Vertical" Style="{StaticResource ProfileImageLayout_Disconnected}">
+                        <Image Source="tab1_travel_profilepicture_ryan.png" Style="{StaticResource ProfileImage}"/>
+                        <Label Text="Susie Wright" Style="{StaticResource ProfileName}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical"  Style="{StaticResource ProfileImageLayout}">
+                        <Image Source="tab2_discover_profilepicture_small.png" Style="{StaticResource ProfileImage}"/>
+                        <Label Text="Susie Wright" Style="{StaticResource ProfileName}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical"  Style="{StaticResource ProfileImageLayout_Disconnected}">
+                        <Image Source="tab1_travel_profilepicture_ryan.png" Style="{StaticResource ProfileImage}"/>
+                        <Label Text="Susie Wright" Style="{StaticResource ProfileName}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical"  Style="{StaticResource ProfileImageLayout_Disconnected}">
+                        <Image Source="tab2_discover_profilepicture_small.png" Style="{StaticResource ProfileImage}"/>
+                        <Label Text="Susie Wright" Style="{StaticResource ProfileName}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical"  Style="{StaticResource ProfileImageLayout_Disconnected}">
+                        <Image Source="tab1_travel_profilepicture_ryan.png" Style="{StaticResource ProfileImage}"/>
+                        <Label Text="Susie Wright" Style="{StaticResource ProfileName}"/>
+                    </StackLayout>
+
+                </StackLayout>
+            </ScrollView>
+
+
+        </StackLayout>
+
+
+        <StackLayout Spacing="0" Grid.Row="1" Orientation="Vertical" VerticalOptions="Fill" BackgroundColor="#261136">
+            <ScrollView>
+                <Grid RowSpacing="5" Margin="20,20,20,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout x:Name="MessagesView"/>
+                </Grid>
+            </ScrollView>
+        </StackLayout>
+
+        <StackLayout Spacing="0" Grid.Row="2" Orientation="Vertical" VerticalOptions="End" BackgroundColor="#431C60">
+            <StackLayout Orientation="Horizontal" Grid.Row="0" Margin="10,0,0,0">
+                <Image Source="tab1_travel_yourplans_button_add.png"/>
+
+                <Frame HasShadow="False" CornerRadius="30" Margin="0,10,10,10" HorizontalOptions="FillAndExpand" Padding="10,10" >
+                    <StackLayout Orientation="Horizontal" Margin="10,0" >
+                    <Label Text="Send a Message" FontSize="18" FontFamily="Runda" TextColor="#8B8B8B"
+                           HorizontalOptions="Start" VerticalOptions="Center" VerticalTextAlignment="Center"
+                           />
+                    <Image Source="tab3_messages_arrow.png" HorizontalOptions="EndAndExpand" WidthRequest="30" HeightRequest="30"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </StackLayout>
+   
+
+    </Grid>
+
+</ContentPage>
